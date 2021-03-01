@@ -1,0 +1,16 @@
+{
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "inspirar-ventilator-ccm",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.inspirar.ccm.Application",
+            "projectName": "inspirar-ventilator-ccm",
+            "args": "--spring.profiles.active=dev" ,     // <- Escolha 1. via linha de comando args 
+            "vmArgs" : "-Dspring.profiles.active=dev"   // <- Escolha 2. via propriedade de sistema java 
+        }
+    ]
+}

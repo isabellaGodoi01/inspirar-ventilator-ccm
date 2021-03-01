@@ -1,0 +1,161 @@
+.contentModalPaciente{
+  min-width: 1024px;
+  .headerModal{
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    .leito{
+      font-weight: 300;
+      color: #58616d;
+      b{
+        font-weight: bold;
+        color: #e00000;
+      }
+    }
+    .status{
+      float: right;
+      font-size: 12px;
+      background-color: orange;
+      color: #fff;
+      margin-right: 20px;
+      border-radius: 8px;
+      padding: 4px 12px;
+    }
+    .closeStatus{
+      
+      .iconClose{
+        cursor: pointer;
+        float:right;
+        margin-top: -8px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .box{
+    width: 100%;
+    padding: 12px;
+    background-color: #252c49;
+    .titleBox{
+      margin-bottom: 16px;
+      ul{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        li{
+          display: inline;
+          padding: 8px 12px;
+          border-radius: 8px;
+          margin-right: 16px;
+          background-color: #1d223a;
+          font-size: 14px;
+          color: #fbfbfb;
+          border-right: 1px solid #161b31;
+        }
+      }
+    }
+
+    .wrapTttleCenter{
+      overflow: hidden;
+      .centerTitle{
+        color: #ff7e00;
+        border-radius: 8px;
+        padding: 3px 24px;
+        font-size: 28px;
+        font-weight: bold;
+        float: right;
+        text-align: center;;
+        background-color: #1d223a;
+      }
+    }
+    
+
+    .center{
+      list-style: none;
+      width: 100%;
+      padding: 0px;
+      margin-bottom: 11px;
+      text-align: center;
+      &.small{
+        li{
+          padding: 6px 9px;
+          div{
+            .centerNumber{
+              font-size: 32px
+            }
+          }
+        }
+      }
+      li{
+        width:100%;
+        border-radius: 8px;
+        font-size: 14px;
+        padding: 12px 16px;
+        color: #fdfdfd;
+        background-color: #1d223a;
+        overflow: hidden;
+        border-bottom: 3px solid #161b31;
+        
+        div{
+          width: 33%;
+          float: left;
+          text-align: center;
+          &:first-child{
+            text-align: left;
+          }
+          &:last-child{
+            text-align: right;
+          }
+          .centerNumber{
+            text-align: center;
+            font-size: 40px;
+            line-height: 40px;
+          }
+          p{
+            margin:0px;
+          }
+        }
+        &.w50{
+          div{
+            width: 50%;
+            .centerNumber{
+              text-align: right;
+            }
+          }
+        }
+        
+      }
+    }
+
+    .right{
+      list-style: none;
+      padding: 0px;
+      text-align: center;
+      padding-right: 16px;
+      li{
+        color: #ecedee;
+        margin-bottom: 8px;
+        .titleRight{
+          color: #ecedee;
+          font-size:14px;
+        }
+        .contentRight{
+          background-color: #1d223a;
+          border-radius: 8px;
+          padding: 2px 0px;
+          span{
+            display: block;
+            &.valueRight{
+              font-size: 24px;
+              font-weight: 300;
+            }
+            &.unidadeRight{
+              margin-top: -7px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

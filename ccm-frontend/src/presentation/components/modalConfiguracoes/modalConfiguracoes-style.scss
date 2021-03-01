@@ -1,0 +1,84 @@
+.contentModalConfiguracoes{
+  min-width: 620px;
+  .headerModal{
+    .closeStatus{
+      .iconClose{
+        cursor: pointer;
+        float:right;
+        margin-top: -8px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .box{
+    .wrapTitleModal{
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+      font-weight: 300;
+      b{
+        font-weight: 600;
+      }
+    }
+    form{
+      label, .nameWrapRadio{
+        color: #054d98;
+        font-size: 14px;
+      }
+
+      .nameWrapRadio{
+        margin-bottom: 18px;
+        display: block;
+      }
+      .wrapRadio{
+        float:left;
+        margin-right: 16px;
+        label{
+          margin-left: 8px;
+        }
+      }
+
+      .sessionButtons{
+        overflow: hidden;
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      input[type=text],
+      input[type=number],
+      input[type=email],
+      input[type=password]{
+        border: 1px solid #054d98;
+        width: 100%;
+        font-size: 14px;
+        height: 40px;
+      }
+
+      .buttonCancel{
+        border: 1px solid #243f87;
+        color: #243f87;
+        padding: 6px 12px;
+        min-width: 160px;
+        border-radius: 22px;
+        outline: none;
+        font-weight: 300;
+        background-color: transparent;
+      }
+      .wrapBtnSubmit{
+        input{
+          border: 1px solid #243f87;
+          color: #FFF;
+          font-weight: 300;
+          float: right;
+          padding: 6px 12px;
+          outline: none;
+          min-width: 160px;
+          border-radius: 22px;
+          background-color: #243f87;
+        }
+      }
+    }
+
+  }
+}

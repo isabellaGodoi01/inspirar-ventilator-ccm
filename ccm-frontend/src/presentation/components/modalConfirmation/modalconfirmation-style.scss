@@ -1,0 +1,45 @@
+.contentModalConfiguracoes{
+    min-width: 420px;
+    .headerModal{
+      .closeStatus{
+        .iconClose{
+          cursor: pointer;
+          float:right;
+          margin-top: -8px;
+          font-size: 24px;
+        }
+      }
+    }
+    p{
+        width: 100%;
+        margin: 0px;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+    .wraButton {
+        width: 100%;
+        margin-bottom: 24px;
+        margin-top: 16px;
+        text-align: center;
+        button{
+            margin-left: 16px;
+            padding: 9px 6px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            font-size: 14px;
+            min-width: 120px;
+            border: none;
+            color: #FFF;
+            border: 1px solid transparent;
+            background-color: red;
+            &:first-child {
+                color: #15295e;
+                border: 1px solid #15295e;
+                background-color: transparent;
+                margin-left: 0px;
+            }
+        }
+    }
+
+  }

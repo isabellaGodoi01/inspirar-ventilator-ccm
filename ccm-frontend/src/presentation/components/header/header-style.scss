@@ -1,0 +1,56 @@
+.header{
+  padding-top: 16px;
+}
+
+.header-logo h1,.header-logo h2{
+  float:left;
+  color: var(--blue);
+  font-weight: 300;
+  margin: 0px;
+}
+.header-logo img{
+  margin-top: 0px;
+  font-size: 32px;
+}
+.header-logo h2{
+  margin-left: 16px;
+  border-left: 1px solid var(--blue);
+  padding-left: 16px;
+  text-transform: uppercase;
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.header-logo h2 b{
+  font-weight: bold;
+}
+
+.wrapLinksHeader ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  padding-top: 12px;
+  text-align: right;
+}
+.wrapLinksHeader ul li {
+  display: inline-block;
+  color: var(--blue);
+  cursor: pointer;
+  margin-left: 16px;
+  border-left: 1px solid var(--gray-500);
+  padding-left: 16px;
+  a{
+    color: var(--blue);
+  }
+}
+
+.wrapLinksHeader ul li:first-child{
+  border: none;
+}
+
+.wrapLinksHeader ul li.namePerson{
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--gray-800)
+}

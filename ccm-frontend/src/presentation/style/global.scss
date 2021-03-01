@@ -1,0 +1,53 @@
+@import url('./form.scss');
+@import url('./modal.scss');
+
+:root{
+  --bgColor: #f1f1f1;
+  --blue: #243f87;
+
+  --gray-500: #e2e2e2;
+  --gray-800: #4a4a4a;
+}
+
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1440px;
+  }
+}
+
+html {
+    position: relative; 
+    min-height: 100%;
+}
+body {
+    margin-bottom: 80px;
+}
+
+body,html,#root{
+    background-color: var(--bgColor);
+    color: var(--gray-800);
+    width: 100%;
+}
+
+.alignBox{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.logo{
+  font-size: 48px;
+  color: var(--blue)
+}
+
+.subLogo{
+  font-size:24px;
+  color: var(--blue);
+  font-weight: 300;
+  text-transform: uppercase;
+  b{
+    font-weight: bold;
+  }
+}

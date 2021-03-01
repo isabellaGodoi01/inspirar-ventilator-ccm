@@ -1,0 +1,44 @@
+.categorysList {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    .listItem {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #243f87;
+        border-bottom: 5px solid #15295e;
+        display: inline-block;
+        color: #FFF;
+        padding: 8px 12px;
+        span {
+            display: block;
+            font-size: 14px;
+            &.categorynumber {
+                font-weight: bold;
+            }
+        }
+    }
+    // .green {
+    //     .listItem {
+    //         background-color: #40b000;
+    //         border-bottom: 5px solid #3a9000;
+    //     }
+    // }
+    // .orange {
+    //     .listItem {
+    //         background-color: #ff7f00;
+    //         border-bottom: 5px solid #d46d00;
+    //     }
+    // }
+    // .red {
+    //     .listItem {
+    //         background-color: #e00000;
+    //         border-bottom: 5px solid #b60400;
+    //     }
+    // }
+}
+
+.react-tabs__tab--selected {
+    color: #FFF !important;
+    background-color: #243f87 !important;
+    border-color: #243f87 #243f87 #fff !important;
+}

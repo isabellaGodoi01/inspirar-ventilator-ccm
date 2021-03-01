@@ -1,0 +1,55 @@
+.filter{
+  margin-bottom: 16px;
+  .filterTitle{
+    text-transform: uppercase;
+    display: block;
+    color:#838383; 
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    li{
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      .check{
+        border: 2px solid var(--blue);
+        width: 12px;
+        height: 12px;
+        float: left;
+        margin-right: 8px;
+        margin-top: 4px;
+        &.active, &:hover{
+          background-color: var(--blue);
+        }
+      }
+      .titleCheck{
+        float: left;
+        font-size: 14px;
+        color: var(--blue);
+      }
+    }
+  }
+}
+
+// .ultimaAtt{
+//   margin-top: 50px;
+//   text-align: center;
+//   margin-bottom: 100px;
+//   p{
+//     margin-bottom: 0px;
+//   }
+// }
+
+.ultimaAtt{
+    //   margin-top: 50px;
+    //   margin-bottom: 100px;
+      p{
+        margin-bottom: 0px;
+        text-align: left;
+      }
+    }

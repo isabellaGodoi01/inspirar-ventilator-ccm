@@ -1,0 +1,471 @@
+swagger: '2.0'
+info:
+  description: ''
+  version: 1.0.0
+  title: Swagger CCM
+host: localhost:8080
+# host: 192.168.7.149:8081
+basePath: /app/inspirar-ventilator-ccm/
+tags:
+- name: CCM
+  description: Aplicação inspirar ventilator CCM
+schemes:
+- http
+- https
+
+paths:
+  /usuario/recuperar-senha:
+    post:
+      tags:
+      - CCM
+      summary: Recuperar senha do usuário.
+      operationId: recuperarSenha
+      parameters:
+      - in: body
+        name: email
+        schema:
+          $ref: '#/definitions/RecuperarSenha'
+      responses:
+        '200':
+          description: OK
+          
+  /usuario:
+    post:
+      tags:
+      - CCM
+      summary: Cadastra um novo usuário.
+      operationId: salvarUsuario
+      parameters:
+      - in: body
+        name: usuario
+        schema:
+          $ref: '#/definitions/Usuario'
+      responses:
+        '200':
+          description: OK
+          
+  /usuario/{idUsuario}:
+    patch:
+      tags:
+      - CCM
+      summary: Desabilitar usuario.
+      operationId: desabilitarUsuario
+      parameters:
+      - in: path
+        name: idUsuario
+        type: integer
+        required: true
+        description: Numeric ID of the user to disable.
+      responses:
+        '204':
+          description: (vazio)
+          
+  /monitor:
+    get:
+      tags:
+      - CCM
+      summary: Recuperar monitoramentos.
+      operationId: recuperarMonitoramento
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+    post:
+      tags:
+      - CCM
+      summary: Adicionar monitoramento.
+      operationId: adicionarMonitoramento
+      parameters:
+      - in: body
+        name: monitoramento
+        schema:
+          $ref: '#/definitions/Monitoramento'
+      responses:
+        '201':
+          description: created
+        '204':
+          description: no content
+          
+  /monitor/{key}:
+    delete:
+      tags:
+      - CCM
+      parameters:
+      - in: path
+        name: key
+        type: integer
+        format: int32
+        required: true
+      description: Chave do monitoramento.
+      summary: Deleção logica do monitoramento.
+      operationId: removerMonitoramento
+      responses:
+        '204':
+          description: no content
+          
+  /grafico:
+    post:
+      tags:
+      - CCM
+      parameters:
+      - in: body
+        name: painelMonitoramento
+        schema:
+          $ref: '#/definitions/PainelMonitoramento'
+      description: Chave do monitoramento.
+      summary: Adiciona informação do monitoramento.
+      operationId: adicionarPainelMonitoramento
+      responses:
+        '204':
+          description: no content
+          
+  /config/smtp:
+    post:
+      tags:
+      - CCM
+      parameters:
+      - in: body
+        name: smtp
+        schema:
+          $ref: '#/definitions/ConfiguracaoSmtp'
+      description: dados do cadastro do smtp.
+      summary: Adiciona informação da consfiguração Smtp.
+      operationId: adicionarSmtp
+      responses:
+        '204':
+          description: no content
+          
+  /config:
+    post:
+      tags:
+      - CCM
+      parameters:
+      - in: body
+        name: monitoramento
+        schema:
+          $ref: '#/definitions/DadosMonitoramentoStorage'
+      description: Chave do monitoramento.
+      summary: Adiciona informação da consfiguração.
+      operationId: adicionarConfig
+      responses:
+        '204':
+         description: no content
+          
+securityDefinitions:
+  ENFERMEIRO:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://example.com/oauth/authorize
+    tokenUrl: https://example.com/oauth/token
+    scopes:
+      write: Grants write access
+      read: Grants read access
+  ADMINISTRADOR:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://example.com/oauth/authorize
+    tokenUrl: https://example.com/oauth/token
+    scopes:
+      write: Grants write access
+      read: Grants read access
+  SYSTEM:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://example.com/oauth/authorize
+    tokenUrl: https://example.com/oauth/token
+    scopes:
+      write: Grants write access
+      read: Grants read access
+      
+definitions:
+  RecuperarSenha:
+    type: object
+    properties:
+      email:
+        type: string
+  UsuarioAutenticado:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32    
+      username:
+        type: string
+      role:
+        type: string
+        enum:
+        - ENFERMEIRO
+        - ADMINISTRADOR
+      token:
+        type: string
+
+  Usuario:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      username:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+        enum:
+        - ENFERMEIRO
+        - ADMINISTRADOR
+      email:
+        type: string
+      enabled:
+        type: boolean
+        
+        
+  Monitoramento:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32  
+      altura:
+        type: string
+      peso:
+        type: string
+      sexo:
+        type: string  
+      leito:
+        type: string
+      paciente:
+        type: string
+      pressaoPico:
+        type: string
+      fio2:
+        type: string
+      peep:
+        type: string
+      fr:
+        type: string
+      vt:
+        type: string
+      ve:
+        type: string
+      numeroImei:
+        type: string
+      mensagemAlarme:
+        type: string
+      vcv:
+        type: boolean
+      alarmePPico:
+        type: boolean
+      alarmeFio2:
+        type: boolean
+      alarmePeep:
+        type: boolean
+      alarmeFr:
+        type: boolean
+      alarmeVt:
+        type: boolean
+      alarmeVe:
+        type: boolean
+      bloqueado:
+        type: boolean
+      countAlarme:
+        type: boolean
+      conexao:
+        type: boolean
+      ordem:
+        type: boolean
+      onOff:
+        type: boolean
+      modo:
+        type: string
+
+        
+  PainelMonitoramento:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      volumeValor:
+        type: number
+        format: float
+      fluxoValor:
+        type: number
+        format: float
+      pressaoValor:
+        type: number
+        format: float
+      chave:
+        type: string
+      dataStorage:
+        $ref: '#/definitions/DataStorage'
+      monitoramento:
+        $ref: '#/definitions/MonitorDinamico'
+  DataStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32    
+      modo:
+        type: string
+      sexo:
+        type: string
+      altura:
+        type: string
+      peso:
+        type: string
+      nomePaciente:
+        type: string
+      leito:
+        type: string
+      isVcv:
+        type: string
+      isLigado:
+        type: string
+      vcvStorage:
+        $ref: '#/definitions/VcvStorage'
+      pcvStorage:
+        $ref: '#/definitions/PcvStorage'
+      modoVcvStorage:
+        $ref: '#/definitions/ModoVcvStorage'
+      modoPcvStorage:
+        $ref: '#/definitions/ModoPcvStorage'
+        
+  ModoPcvStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      picoMinimo:
+        type: string
+      picoMaximo:
+        type: string
+      veMinimo:
+        type: string
+      veMaximo:
+        type: string
+      vtMinimo:
+        type: string
+      vtMaximo:
+        type: string
+      peepMinimo:
+        type: string
+      peepMaximo:
+        type: string
+        
+  ModoVcvStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      veMinimo:
+        type: string
+      veMaximo:
+        type: string
+      picoMinimo:
+        type: string
+      picoMaximo:
+        type: string
+      platoMinimo:
+        type: string
+      platoMaximo:
+        type: string
+  PcvStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      deltaP:
+        type: string
+      peep:
+        type: string
+      tinsp:
+        type: string
+      fr:
+        type: string
+      sensib:
+        type: string
+      fio2:
+        type: string
+  VcvStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      vt:
+        type: string
+      fluxo:
+        type: string
+      fr:
+        type: string
+      peep:
+        type: string
+      pausaInsp:
+        type: string
+      sensib:
+        type: string
+      fio2:
+        type: string
+  MonitorDinamico:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      vt:
+        type: string
+      fluxo:
+        type: string
+      fr:
+        type: string
+      peep:
+        type: string
+      pausaInsp:
+        type: string
+      sensib:
+        type: string
+      fio2:
+        type: string
+  DadosMonitoramentoStorage:
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      url:
+        type: string
+      senha:
+        type: string
+      imei:
+        type: string
+
+  ConfiguracaoSmtp:
+    required:
+      - isIsabela
+    type: object
+    properties:
+      id:
+        type: string
+        format: int32
+      host:
+        type: string
+      porta:
+        type: integer
+      autenticacao:
+        type: boolean
+      usuario:
+        type: string
+      senha:
+        type: string
+      remetente:
+        type: string
+      sslTls:
+        type: boolean
+
+        
